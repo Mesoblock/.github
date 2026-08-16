@@ -1,4 +1,9 @@
-# Mesoblock
+# <img src="./mesoblock-light-mode.svg#gh-light-mode-only" alt="Mesoblock" height="30" /><img src="./mesoblock-dark-mode.svg#gh-dark-mode-only" alt="Mesoblock" height="30" />
+
+[![License](https://img.shields.io/badge/license-proprietary-blue)](https://github.com/mesoblock/mesoblock/blob/main/LICENSE)
+[![Version](https://img.shields.io/github/v/tag/mesoblock/mesoblock?label=version)](https://github.com/mesoblock/mesoblock/tags)
+[![Last Commit](https://img.shields.io/github/last-commit/mesoblock/mesoblock?color=yellow)](https://github.com/mesoblock/mesoblock/commits/main)
+[![GitHub Repo stars](https://img.shields.io/github/stars/mesoblock/mesoblock)](https://github.com/mesoblock/mesoblock/stargazers)
 
 AI-driven workout programming with a human safety net.
 
