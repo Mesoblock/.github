@@ -1,0 +1,255 @@
+name: "Bug Report"
+description: Report a reproducible bug or unexpected behavior in Mesoblock.
+title: "bug: "
+labels:
+  - "bug"
+  - "needs-triage"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a bug in Mesoblock. Clear and reproducible reports help us diagnose and resolve issues faster.
+
+        **Before submitting**, please:
+        - Search [existing bug reports](../issues?q=is%3Aissue+label%3Abug) to confirm this hasn't already been reported
+        - Confirm the behavior is actually unexpected and not an intentional product behavior
+        - Do not include passwords, authentication tokens, personal information, health information, or other sensitive data in your report
+        - If this is a security vulnerability, do **not** file a public issue. Follow the process described in [SECURITY.md](../../SECURITY.md)
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Preflight checklist
+      options:
+        - label: I searched existing bug reports and this has not been reported before
+          required: true
+        - label: I can reliably reproduce this issue with the steps I've provided below
+          required: true
+        - label: I have removed any passwords, tokens, personal information, health information, or other sensitive data from this report
+          required: true
+        - label: This is not a security vulnerability
+          required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severely does this bug affect the Mesoblock experience?
+      options:
+        - "Critical — the application is unusable, data may be lost or compromised, or the issue could create a significant safety risk"
+        - "High — a core feature is broken, produces materially incorrect results, or creates a significant user-impacting problem without a reasonable workaround"
+        - "Medium — a feature is broken but a reasonable workaround exists"
+        - "Low — minor issue, cosmetic defect, or uncommon edge case"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected Area
+      description: Which part(s) of Mesoblock are affected?
+      multiple: true
+      options:
+      - "Authentication"
+      - "Account & Profile"
+      - "Onboarding"
+      - "Fitness Assessment"
+      - "Goals"
+      - "Workout Plans"
+      - "AI & Recommendations"
+      - "Exercises"
+      - "Workouts"
+      - "Workout Tracking"
+      - "Progress Tracking"
+      - "Metrics & Measurements"
+      - "Dashboard"
+      - "Notifications"
+      - "Subscriptions & Billing"
+      - "Search & Discovery"
+      - "Settings"
+      - "Navigation & Layout"
+      - "Email"
+      - "API & Integrations"
+      - "Database & Schema"
+      - "Infrastructure & Deployment"
+      - "CI/CD"
+      - "Testing & Quality"
+      - "Developer Experience"
+      - "Performance"
+      - "Security & Privacy"
+      - "Accessibility"
+      - "Documentation"
+      - "Other"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: user_persona
+    attributes:
+      label: Affected User Persona
+      description: Which type of user experiences this bug?
+      multiple: true
+      options:
+        - "User"
+        - "New User"
+        - "Returning User"
+        - "Free User"
+        - "Paid User"
+        - "Unauthenticated User"
+        - "All Users"
+        - "Not applicable / unknown"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: |
+        Provide a clear and concise description of the problem.
+
+        Explain what you were trying to accomplish and what went wrong.
+      placeholder: |
+        When generating a workout plan, I expect the plan to respect the equipment I selected during onboarding. Instead, the generated plan includes exercises that require equipment I do not have.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: |
+        Provide exact, numbered steps that reliably reproduce the issue.
+
+        Include any relevant setup or prerequisites before the first step.
+      placeholder: |
+        1. Create an account
+        2. Complete onboarding
+        3. Select bodyweight-only training as the available equipment
+        4. Enter a fitness goal
+        5. Generate a workout plan
+        6. Review the generated exercises
+        7. Observe that the plan includes exercises requiring unavailable equipment
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should have happened?
+      placeholder: |
+        The generated workout plan should only include exercises that are compatible with the equipment and constraints provided during onboarding.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: |
+        What actually happened?
+
+        Include any visible error messages exactly as they appear. Do not include passwords, tokens, personal information, health information, or other sensitive data.
+      placeholder: |
+        The workout plan was generated successfully, but it contains exercises that require equipment I explicitly indicated I do not have.
+    validations:
+      required: true
+
+  - type: textarea
+    id: ai_context
+    attributes:
+      label: AI Context
+      description: |
+        If this bug involves AI-generated content or recommendations, provide relevant context about the input and unexpected output.
+
+        Do not include personal or sensitive information. Redact any identifying information before submitting.
+      placeholder: |
+        The issue occurs when generating a plan for a beginner user with bodyweight-only equipment. The generated plan includes barbell exercises.
+
+        If the issue does not involve AI-generated behavior, leave this field blank.
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or Screen Recordings
+      description: |
+        For UI or interaction bugs, a screen recording is often more useful than a screenshot.
+
+        Drag and drop images or videos here, or paste a link to a recording.
+
+        Remove any personal or sensitive information before uploading.
+      placeholder: Drag files here or paste a link...
+
+  - type: textarea
+    id: console_errors
+    attributes:
+      label: Browser Console Errors
+      description: |
+        Open DevTools (F12) → Console. Reproduce the bug and paste any relevant error messages here.
+
+        If there are no relevant errors, write "None".
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: network_errors
+    attributes:
+      label: Network Errors
+      description: |
+        Open DevTools (F12) → Network. Reproduce the bug and note any failed requests.
+
+        Include the HTTP method, endpoint, status code, and relevant response information if available.
+
+        Do not include authentication headers, cookies, tokens, personal information, or other sensitive data.
+
+        If there are no relevant failures, write "None".
+      placeholder: |
+        POST /api/example — 500 Internal Server Error
+        Response: { "error": "Internal server error" }
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: Where did the bug occur?
+      options:
+        - "Production"
+        - "Preview / Staging"
+        - "Local Development"
+        - "Not sure"
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and Version
+      placeholder: "e.g. Chrome 151.0.0.0, Safari 26.0, Firefox 142"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      placeholder: "e.g. Windows 11, macOS 26, Ubuntu 24.04"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: |
+        Include anything else that may help diagnose the issue.
+
+        Consider:
+        - Whether the issue is intermittent or consistent
+        - Whether it started after a recent change
+        - Whether it affects multiple users
+        - Related issues or user stories
+        - Relevant steps that do not reproduce the issue
+        - Any temporary workaround you've discovered

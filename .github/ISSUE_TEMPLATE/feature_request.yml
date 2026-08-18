@@ -1,0 +1,214 @@
+name: "Feature Request"
+description: Propose a new feature or enhancement for Mesoblock.
+title: "feat: "
+labels:
+  - "enhancement"
+  - "needs-triage"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to propose a new feature, capability, or enhancement for Mesoblock.
+
+        Feature requests are intentionally less prescriptive than user stories. Focus on the **problem, opportunity, and desired outcome** rather than defining implementation details.
+
+        **Before submitting**, please:
+        - Search [existing feature requests](../issues?q=is%3Aissue+label%3Aenhancement) to confirm this hasn't already been proposed
+        - Search [existing user stories](../issues?q=is%3Aissue+label%3A%22user+story%22) to make sure the idea hasn't already been refined into a story
+        - If a related issue exists, add a 👍 reaction or contribute additional context rather than filing a duplicate
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Preflight checklist
+      options:
+        - label: I searched existing feature requests and user stories and this has not already been proposed
+          required: true
+        - label: This request is for Mesoblock itself, not a third-party integration or external tooling
+          required: true
+        - label: I've focused on the problem and desired outcome rather than prescribing a technical implementation
+          required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Feature Area
+      description: Which part(s) of Mesoblock would this feature primarily affect?
+      multiple: true
+      options:
+      - "Authentication"
+      - "Account & Profile"
+      - "Onboarding"
+      - "Fitness Assessment"
+      - "Goals"
+      - "Workout Plans"
+      - "AI & Recommendations"
+      - "Exercises"
+      - "Workouts"
+      - "Workout Tracking"
+      - "Progress Tracking"
+      - "Metrics & Measurements"
+      - "Dashboard"
+      - "Notifications"
+      - "Subscriptions & Billing"
+      - "Search & Discovery"
+      - "Settings"
+      - "Navigation & Layout"
+      - "Email"
+      - "API & Integrations"
+      - "Database & Schema"
+      - "Infrastructure & Deployment"
+      - "CI/CD"
+      - "Testing & Quality"
+      - "Developer Experience"
+      - "Performance"
+      - "Security & Privacy"
+      - "Accessibility"
+      - "Documentation"
+      - "Other"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: user_persona
+    attributes:
+      label: Primary User Persona
+      description: Who would primarily benefit from this feature?
+      options:
+        - "User"
+        - "New User"
+        - "Returning User"
+        - "Free User"
+        - "Paid User"
+        - "Unauthenticated User"
+        - "All Users"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Opportunity
+      description: |
+        What problem does this feature solve, or what opportunity does it create?
+
+        Focus on the user's needs and the desired outcome rather than proposing a technical solution.
+      placeholder: |
+        Users currently have to manually translate their fitness goals, experience, available equipment, and schedule into a structured training routine.
+
+        This creates friction during onboarding and makes it difficult for users to know where to begin.
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: |
+        Describe the feature or capability you'd like to see.
+
+        This is an opportunity to describe the desired user experience, but avoid prescribing technical implementation details unless they are important constraints.
+      placeholder: |
+        Allow users to provide their relevant fitness information during onboarding and use that information to generate a personalized workout plan through Mesoblock's AI capabilities.
+    validations:
+      required: true
+
+  - type: textarea
+    id: user_value
+    attributes:
+      label: User Value
+      description: |
+        What value would this provide to the user?
+
+        Explain how the feature would improve the user's workflow, experience, or ability to accomplish their fitness goals.
+      placeholder: |
+        Users would be able to start training with a structured plan that reflects their goals, experience, and available resources without having to design the plan themselves.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives & Workarounds
+      description: |
+        How is this problem currently handled?
+
+        Describe existing workarounds or alternative approaches and explain their limitations.
+      placeholder: |
+        Users currently create their own routines, search for generic workout plans online, or use other fitness applications. These approaches may not account for the user's individual goals, experience, or available equipment.
+    validations:
+      required: true
+
+  - type: textarea
+    id: prior_art
+    attributes:
+      label: Examples & Prior Art
+      description: |
+        Does a similar feature exist in another fitness, training, health, AI, or productivity application?
+
+        Provide links or describe the relevant experience. This is optional but can help clarify the desired behavior.
+      placeholder: |
+        Describe similar experiences from other fitness or AI applications and include links where useful.
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Suggested Priority
+      description: |
+        How important do you believe this feature is relative to other work?
+
+        This is a suggestion only; final priority will be determined during refinement and planning.
+      options:
+        - "Critical — essential to the core Mesoblock experience"
+        - "High — provides significant user value"
+        - "Medium — useful but not essential"
+        - "Low — nice to have"
+        - "Not sure — needs discussion"
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints & Considerations
+      description: |
+        Are there any important constraints, dependencies, edge cases, or product considerations?
+
+        Consider:
+        - Privacy and sensitive fitness data
+        - Exercise and user safety
+        - AI limitations or failure modes
+        - Subscription or entitlement requirements
+        - Dependencies on existing user, workout, or profile data
+        - Accessibility requirements
+        - Expected scale or performance
+      placeholder: |
+        The feature should protect sensitive fitness information and should not present AI-generated recommendations as medical advice.
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Attachments & References
+      description: |
+        Add supporting materials related to this feature:
+        - Figma designs or mockups
+        - Screenshots
+        - Examples from other applications
+        - Related GitHub issues or discussions
+        - Product documentation
+      placeholder: Drag files here or paste a link
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: |
+        Anything else that would help the team evaluate this feature.
+
+        Consider:
+        - What happens if we don't build it?
+        - Who is affected?
+        - Is this relevant to the initial release or a future phase?
+        - Is there a reason this should be considered now?
+        - Are there assumptions that need to be validated?

@@ -1,0 +1,222 @@
+name: "User Story"
+description: Define a user-centered feature or capability for Mesoblock.
+title: "story: "
+labels:
+  - "user story"
+  - "needs-refinement"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to propose a specific feature or capability for Mesoblock. A good user story focuses on the **value delivered to the user**, not the technical implementation.
+
+        **Before submitting**, please:
+        - Search [existing stories](../issues?q=is%3Aissue+label%3A%22user+story%22) to confirm this story hasn't already been proposed
+        - Ensure this story aligns with Mesoblock's product vision and current priorities
+        - Keep the story focused on a single user goal; larger stories may be broken down during refinement
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Preflight checklist
+      options:
+        - label: I searched existing stories and this feature has not been proposed
+          required: true
+        - label: I've described the "what" and "why" (technical implementation details belong in the PR)
+          required: true
+        - label: I understand that stories may be re-prioritized or broken into smaller pieces during refinement
+          required: true
+
+  - type: textarea
+    id: story
+    attributes:
+      label: User Story
+      description: |
+        Describe the feature from the user's perspective. Focus on the user's goal and the value they receive, not how the feature will be implemented.
+
+        **Format:** As a `<type of user>`, I want `<goal>` so that `<reason>`.
+      placeholder: |
+        As a user,
+        I want the AI to generate a workout plan based on my goals, experience, and available equipment
+        so that I have a structured training program tailored to me.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: user_persona
+    attributes:
+      label: User Persona
+      description: Which type of user primarily benefits from this story?
+      multiple: true
+      options:
+        - "User"
+        - "New User"
+        - "Returning User"
+        - "Free User"
+        - "Paid User"
+        - "Unauthenticated User"
+        - "All Users"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected Area
+      description: Which part(s) of Mesoblock does this story affect?
+      multiple: true
+      options:
+      - "Authentication"
+      - "Account & Profile"
+      - "Onboarding"
+      - "Fitness Assessment"
+      - "Goals"
+      - "Workout Plans"
+      - "AI & Recommendations"
+      - "Exercises"
+      - "Workouts"
+      - "Workout Tracking"
+      - "Progress Tracking"
+      - "Metrics & Measurements"
+      - "Dashboard"
+      - "Notifications"
+      - "Subscriptions & Billing"
+      - "Search & Discovery"
+      - "Settings"
+      - "Navigation & Layout"
+      - "Email"
+      - "API & Integrations"
+      - "Database & Schema"
+      - "Infrastructure & Deployment"
+      - "CI/CD"
+      - "Testing & Quality"
+      - "Developer Experience"
+      - "Performance"
+      - "Security & Privacy"
+      - "Accessibility"
+      - "Documentation"
+      - "Other"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Product Priority
+      description: |
+        How important is this feature relative to other work?
+        (Final priority will be set during refinement.)
+      options:
+        - "Critical — blocking other work or a key product commitment"
+        - "High — delivers significant user value"
+        - "Medium — important but can be deferred if needed"
+        - "Low — nice to have, low urgency"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Detailed Description
+      description: |
+        Provide additional context that helps the team understand the user's needs and the desired experience.
+
+        Include:
+        - What problem is the user trying to solve?
+        - What is the current experience, if any?
+        - What should the desired experience look like?
+        - Are there important workflows or edge cases to consider?
+        - Are there designs, mockups, or references to link to?
+        - Are there privacy, safety, or responsible-AI considerations?
+      placeholder: |
+        Users currently have to translate their goals, fitness experience, available equipment, and schedule into a structured workout routine themselves.
+
+        This feature would allow a user to provide their relevant fitness information and have Mesoblock generate a personalized workout plan. The user should be able to review the generated plan and understand how it relates to their goals.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: |
+        Define the conditions that must be met for this story to be considered complete.
+
+        Use the **Given / When / Then** format for clarity. Each criterion should be independently testable and describe observable behavior.
+      placeholder: |
+        **Scenario 1: Generate a workout plan**
+        Given I have completed the required onboarding and fitness information
+        When I request a workout plan
+        Then Mesoblock generates a plan based on my goals, experience, and available equipment
+        And I can review the generated plan before starting it
+
+        **Scenario 2: Insufficient information**
+        Given I have not completed the required onboarding information
+        When I attempt to generate a workout plan
+        Then I am prompted to provide the missing information
+        And a workout plan is not generated until the required information is available
+    validations:
+      required: true
+
+  - type: textarea
+    id: safety_considerations
+    attributes:
+      label: Safety & Health Considerations
+      description: |
+        Identify any health, exercise, safety, or responsible-AI considerations relevant to this story.
+
+        Do not include personal health information about yourself or another person.
+      placeholder: |
+        The feature should avoid presenting AI-generated recommendations as medical advice and should clearly communicate relevant limitations or precautions.
+
+  - type: textarea
+    id: technical_notes
+    attributes:
+      label: Technical Notes (optional)
+      description: |
+        Include implementation considerations, known dependencies, constraints, or architectural context that may help during refinement.
+
+        This section is optional and should not prescribe the implementation unless there is an established technical constraint.
+      placeholder: |
+        Leave blank if you're unsure; implementation details can be discussed during refinement.
+
+  - type: dropdown
+    id: effort
+    attributes:
+      label: Estimated Effort
+      description: Rough effort estimate. This will be refined during planning.
+      options:
+        - "XS — hours, not days"
+        - "S — ~1-2 days"
+        - "M — ~3-5 days"
+        - "L — ~1-2 weeks"
+        - "XL — needs to be broken down"
+        - "Unknown — needs discussion"
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Attachments & References
+      description: |
+        Add supporting materials related to this story:
+        - Figma designs or mockups
+        - Screenshots
+        - Examples from other fitness or AI applications
+        - Related GitHub issues or discussions
+        - Relevant product documentation
+      placeholder: Drag files here or paste links
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: |
+        Include any additional information that may help with prioritization or refinement.
+
+        Consider:
+        - What happens if we don't build this?
+        - Does this depend on another feature?
+        - Are there important product constraints?
+        - Is this required for the initial release or a future phase?
+        - Are there assumptions that should be validated?

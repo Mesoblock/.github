@@ -1,0 +1,201 @@
+name: "Task"
+description: Track internal engineering, maintenance, refactoring, or operational work for Mesoblock.
+title: "task: "
+labels:
+  - "task"
+  - "needs-triage"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for internal engineering work that does not represent a user-facing feature or bug fix.
+
+        Appropriate uses include:
+        - Refactoring
+        - Dependency updates
+        - Infrastructure and deployment work
+        - Database and schema maintenance
+        - AI and model infrastructure
+        - Developer experience improvements
+        - Technical debt
+        - Performance optimization
+        - Testing and quality improvements
+        - CI/CD and repository maintenance
+        - Documentation and operational work
+
+        **Do not use this template for:**
+        - User-facing feature ideas → use the **Feature Request** template
+        - User-facing functionality → use the **User Story** template
+        - Unexpected or broken behavior → use the **Bug Report** template
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Preflight checklist
+      options:
+        - label: I confirmed this is an internal engineering or maintenance task
+          required: true
+        - label: I searched existing tasks and this work has not already been requested
+          required: true
+        - label: I've described the expected outcome clearly enough for the work to be completed and reviewed
+          required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Task Summary
+      description: Briefly describe the work that needs to be completed.
+      placeholder: |
+        Upgrade Next.js to the latest supported version and resolve any resulting compatibility issues.
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: |
+        Why is this task needed?
+
+        Explain the technical or operational reason for doing the work and what problem it addresses.
+      placeholder: |
+        The current Next.js version contains fixes and improvements that we want to adopt. The upgrade also keeps the project aligned with the supported framework version.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected Area
+      description: Which part of the project does this task primarily affect?
+      multiple: true
+      options:
+        - "Authentication"
+        - "Account & Profile"
+        - "Onboarding"
+        - "Fitness Assessment"
+        - "Goals"
+        - "Workout Plans"
+        - "AI & Machine Learning"
+        - "Exercises"
+        - "Workouts"
+        - "Workout Tracking"
+        - "Progress Tracking"
+        - "Metrics & Measurements"
+        - "Dashboard"
+        - "Notifications"
+        - "Subscriptions & Billing"
+        - "Search & Discovery"
+        - "Settings"
+        - "Navigation & Layout"
+        - "Email"
+        - "API & Integrations"
+        - "Database & Schema"
+        - "Infrastructure & Deployment"
+        - "CI/CD"
+        - "Testing & Quality"
+        - "Developer Experience"
+        - "Dependencies"
+        - "Documentation"
+        - "Performance"
+        - "Security & Privacy"
+        - "Accessibility"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: |
+        Define the conditions that must be satisfied for this task to be considered complete.
+
+        Use a checklist of independently verifiable outcomes. Include validation steps where appropriate.
+      placeholder: |
+        - [ ] The required changes are implemented
+        - [ ] Existing functionality continues to work
+        - [ ] Tests pass
+        - [ ] The application builds successfully
+        - [ ] Documentation is updated if necessary
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Engineering Priority
+      description: |
+        How important is this task relative to other engineering work?
+        (Final priority may be adjusted during planning.)
+      options:
+        - "Critical — blocking development, deployment, or a key release"
+        - "High — important for stability, security, or ongoing development"
+        - "Medium — valuable engineering improvement that can be scheduled"
+        - "Low — useful maintenance or optimization with low urgency"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: effort
+    attributes:
+      label: Estimated Effort
+      description: Rough effort estimate. This will be refined during planning.
+      options:
+        - "XS — hours, not days"
+        - "S — ~1-2 days"
+        - "M — ~3-5 days"
+        - "L — ~1-2 weeks"
+        - "XL — needs to be broken down"
+        - "Unknown — needs discussion"
+
+  - type: textarea
+    id: technical_notes
+    attributes:
+      label: Technical Notes
+      description: |
+        Include implementation considerations, known constraints, relevant files or systems, migration considerations, or other technical context.
+      placeholder: |
+        The upgrade may require updates to Next.js configuration and compatibility changes in existing components.
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies & Related Issues
+      description: |
+        List anything this task depends on or may affect.
+
+        Include related GitHub issues, pull requests, documentation, migrations, or other tasks when applicable.
+      placeholder: |
+        Depends on #123
+        Related to #456
+
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation & Verification
+      description: |
+        Describe how the completed work should be verified.
+
+        Include relevant commands, test scenarios, build checks, or manual verification steps.
+      placeholder: |
+        - Run `npm run build`
+        - Run the test suite
+        - Run Ultracite checks
+        - Verify authentication flows locally
+        - Verify the production deployment succeeds
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: |
+        Include anything else that may help complete or review this task.
+
+        Consider:
+        - Relevant documentation
+        - Screenshots or logs
+        - Known edge cases
+        - Rollback considerations
+        - Future follow-up work
